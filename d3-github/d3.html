@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<meta charset="utf-8">
+<style>
+
+
+</style>
+
+<body>
+  <ul id="list-group">
+    <li><span>0</span></li>
+    <li><span>1</span></li>
+    <li><span>2</span></li>
+    <li><span>6</span></li>
+
+</ul>
+</body>
+<script src="d3.min.js"></script>
+<script>
+
+//  待运算的集合
+var bSet   = [1,2,3,4,5];
+//  集合的唯一性识别
+var iden   = function(d) {
+    //  如果元素没有绑定过数据，数据就是其文字内容
+    return d ? d : parseInt(this.textContent);  // 为了方便比较，这里对其类型进行了转换parse，也可以不转换
+};
+console.log(d3.selectAll('li'))
+console.log(d3.selectAll('li').selectAll('span'))
+console.log(d3.selectAll('li').append('p'))
+//  共有的集合，即A∩B,返回的结果为[3,5]
+var update = d3.select('#list-group').selectAll('li')
+               .data(bSet,iden);
+
+console.log(update)
+//  进行exit操作，即A-B，返回的结果为[0]
+var itemsOfAOnly = update.exit();
+console.log(itemsOfAOnly)
+//  进行enter，即B-A，返回的结果为[1, 2, 4]
+var newItems     = update.enter();
+console.log(newItems)
+
+</script>

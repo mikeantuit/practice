@@ -1,0 +1,109 @@
+<style>
+    .daterangepicker-input:before {
+        content: none;
+        font-family: fontawesome;
+        position: absolute;
+        top: 7px;
+        right: 10px;
+    }
+
+    text {
+        fill: black;
+        font-size: 9px;
+    }
+
+    .card {
+        box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24);
+        transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+        margin-bottom: 7px;
+    }
+
+    .card:hover {
+        box-shadow: 0 14px 28px rgba(0, 0, 0, 0.25), 0 10px 10px rgba(0, 0, 0, 0.22);
+    }
+
+    .node text {
+        pointer-events: none;
+        text-shadow: none;
+    }
+</style>
+<div class="container-fluid">
+    <div class="row" style="background-color:white;">
+        <div class=" col-xs-12">
+            <div data-ng-controller="attributeController as attributeCtrl">
+                <div class="row" style="padding-top:5px;background:#607d8b;color:black;">
+                    <div class="col-md-3">
+                        <h4>Customer Journey Sankey </h4>
+                    </div>
+                    <div class="col-md-5" style="text-align:center;border-bottom:2px solid #D32D47">
+                        <h3>{{attributeCtrl.titleName}} </h3>
+                    </div>
+                    <!--<div class="col-md-2" style="margin-top: 5px">
+                        <select class="col-md-12" style="height: 30px;" data-ng-options="model as model.name for model in attributeCtrl.models" data-ng-model="attributeCtrl.selectedModel"></select>
+                    </div>-->
+                    <!--<div class=" col-md-2 pull-right" style=" margin-top:5px;">
+                        <form class=" form">
+                            <div class=" form-group">
+                                <input date-range-picker type="text" data-ng-model=" attributeCtrl.datePicker" options="attributeCtrl.options" class=" form-control"
+                                />
+                            </div>
+                        </form>
+                    </div>-->
+                </div>
+                <div class="row">
+                    <div class="col-md-9">
+                        <div id="viz" style="height: 84vh;background:white;" class="card"> </div>
+                    </div>
+                    <div class="col-md-3">
+                        <div class=" row card">
+                            <div style=" height:260px" id="funnel"> </div>
+                        </div>
+                        <!--<div class=" row card">
+                            <div style=" height :260px" id="pie"></div>
+                        </div>-->
+                        <div style="margin-bottom:0px;height:250px" class="row card">
+                            <table class="table table-hover table responsive">
+                                <thead>
+                                    <tr>
+                                        <th>Attribution Channel</th>
+                                        <th>Percentage(%)</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td>Verification</td>
+                                        <td>85%</td>
+                                    </tr>
+                                    <tr>
+                                        <td>Verification_Decline</td>
+                                        <td>34%</td>
+                                    </tr>
+                                    <tr>
+                                        <td>Verification_Approve</td>
+                                        <td>23%</td>
+                                    </tr>
+                                    <tr>
+                                        <td>Eligibility_DIRECT_APPROVAL</td>
+                                        <td>13%</td>
+                                    </tr>
+                                    <tr>
+                                        <td>DeCLINED</td>
+                                        <td>11%</td>
+                                    </tr>
+                                    <tr>
+                                        <td>CLOSED</td>
+                                        <td>8%</td>
+                                    </tr>
+                                    <tr>
+                                        <td>OPEN</td>
+                                        <td>7%</td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

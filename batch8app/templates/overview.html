@@ -1,0 +1,21 @@
+<div class="overview-body" ng-controller="OverviewCtrl">
+    <h1>Overview</h1>
+    <div class="jumbotron my-jumbotron">
+        <div>{{profile.username}}-{{profile.nickname}}</div>
+        <div><img ng-src={{profile.profileImage}} class="my-image"></img>
+        </div>
+        <p>Welcome to dashboard application.This application guide will introduce you to things that you can do while staying here. All the sections mentioned below can be accessed from the navigation menu on the left side.</p>
+        <uib-accordion close-others="oneAtATime">
+            <uib-accordion-group heading="Work Section"> This section contains the demonstration for the final products that has been produced in the market
+            </uib-accordion-group>
+        </uib-accordion>
+        <uib-accordion close-others="oneAtATime">
+            <uib-accordion-group heading="Producer Section">This section contains information about the creator of all the works and how to get in touch with them
+            </uib-accordion-group>
+        </uib-accordion>
+        <uib-accordion close-others="oneAtATime">
+            <uib-accordion-group heading="Contact Section">This section provides a gateway for users to voice out opinions regarding the application and any other questions or concerns that one might have
+            </uib-accordion-group>
+        </uib-accordion>
+    </div>
+</div>

@@ -1,0 +1,53 @@
+<h2 style="text-align: center;">Direct Report Distribution by Band<button ui-sref="second" class="btn btn-primary">
+		  Back
+	 	</button></h2>
+<div class="row">
+	<div class="col-md-3">
+		<h4>Count by Career Band</h4>
+		<ng-echarts ec-config="config3" ec-option="option3" style="height: 150px;width:300px;"></ng-echarts>
+		<ng-echarts ec-config="config4" ec-option="option4" style="height: 150px;width:300px;"></ng-echarts>
+		<ng-echarts ec-config="config5" ec-option="option5" style="height: 150px;width:300px;"></ng-echarts>
+		<ng-echarts ec-config="config6" ec-option="option6" style="height: 150px;width:300px;"></ng-echarts>
+		<ng-echarts ec-config="config7" ec-option="option7" style="height: 150px;width:300px;"></ng-echarts>
+		<ng-echarts ec-config="config8" ec-option="option8" style="height: 150px;width:300px;"></ng-echarts>
+		<div style="border:solid 1px;text-align: right;margin: 10px;padding: 5px">Total Employee Count: 111</div>
+	</div>
+	<div class="col-md-7">
+		<h4>Direct Report Distribution<span>(select a bar to view employee details)</span></h4>
+		<ng-echarts ec-config="configband1" ec-option="optionband1" style="height: 150px;width:730px;"></ng-echarts>
+		<ng-echarts ec-config="configband2" ec-option="optionband2" style="height: 150px;width:730px;"></ng-echarts>
+		<ng-echarts ec-config="configband3" ec-option="optionband3" style="height: 150px;width:730px;"></ng-echarts>
+		<ng-echarts ec-config="configband4" ec-option="optionband4" style="height: 150px;width:730px;"></ng-echarts>
+		<ng-echarts ec-config="configband5" ec-option="optionband5" style="height: 150px;width:730px;"></ng-echarts>
+		<ng-echarts ec-config="configband6" ec-option="optionband6" style="height: 150px;width:730px;"></ng-echarts>
+	</div>
+	<div class="col-md-2">
+		<div style="border:solid 1px;text-align: right;padding: 5px;margin-right: 10px">Total Estimated Cost<p>37,408,499</p></div>
+		<div>
+			<p style="margin:10px 0 10px 0">Marketing Cost Centers</p>
+			<input type="radio"><span>   (All)</span></br>
+			<input type="radio"><span>   In</span></br>
+			<input type="radio"><span>   Out</span>
+		</div>
+		<br/>
+		<label>HR Business Unit Name:</label>
+        <br/>
+        <select style="width: 80%"><option>(All)</option></select>
+        <br/><br/>
+        <label>Payroll Country Region:</label>
+        <br/>
+        <select style="width: 80%"><option>(All)</option></select>
+		<br/><br/>
+		<p># of Direct Reports</p>
+		<div style="width: 15px;height: 15px;background-color:grey;display: inline-block;"></div><div style="display: inline-block;margin-left: 10px;">0</div><br/>
+		<div style="width: 15px;height: 15px;background-color:#e9b181;display: inline-block;"></div><div style="display: inline-block;margin-left: 10px;">1~3</div><br/>
+		<div style="width: 15px;height: 15px;background-color:#ef862b;display: inline-block;"></div><div style="display: inline-block;margin-left: 10px;">4~6</div><br/>
+		<div style="width: 15px;height: 15px;background-color:#b85703;display: inline-block;"></div><div style="display: inline-block;margin-left: 10px;">7~9</div><br/><br/><br/>
+		<label>report cutoff 1</label>
+		<input type="text" name="" style="width: 80%" placeholder="10"><br/><br/>
+		<label>report cutoff 2</label>
+		<input type="text" name="" style="width: 80%" placeholder="7"><br/><br/>
+		<label>report cutoff 3</label>
+		<input type="text" name="" style="width: 80%" placeholder="4"><br/><br/>
+	</div>
+</div>

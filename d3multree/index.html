@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<meta charset="utf-8">
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+<style>
+/*h1 {
+    font: 16px sans-serif;
+    font-weight: bold;
+    text-decoration: underline;
+}*/
+div.container {
+    float: left;
+    width: 100%;
+}
+
+div.negative {
+    float: right;
+    background-color: brown;
+}
+
+div.positive {
+    background-color: steelblue;
+    height: 30px;
+}
+
+/*table {
+    font: 14px sans-serif;
+    vertical-align: middle;
+    text-align: left;
+    border-collapse: collapse;
+}*/
+
+/*td,th{
+    padding-top: 2px;
+    padding-bottom: 2px;
+    border-bottom: 1px solid #ddd;
+}*/
+
+td.chart {
+    background-color: white;
+}
+
+th {
+    padding-left: 10px;
+}
+
+td.data {
+    padding-left: 5px;
+}
+
+td.value {
+    text-align: left;
+}
+
+td.name {
+    text-align: left;
+}
+td[rowspan] {
+  vertical-align: top;
+  /*text-align: left;*/
+}
+.table>thead>tr>th{
+  border-bottom: 0
+}
+td div{
+  border-bottom: 1px solid #ddd;
+  padding: 5px 0;
+}
+.axis path,
+.axis line {
+    fill: none;
+    stroke: black;
+    shape-rendering: crispEdges;
+}
+
+.axis text {
+    font-family: sans-serif;
+    font-size: 12px;
+}
+
+.MyRect {
+    /*fill: steelblue;*/
+}
+
+.MyText {
+    fill: black;
+    text-anchor: middle;
+    font-size: 10px;
+}
+
+</style>
+<script src="http://code.jquery.com/jquery-1.10.2.min.js"></script>
+<script src="angular.js"></script>
+<script src="app.js"></script>
+<script src="service.js"></script>
+<script src="node_modules/d3/d3.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+
+<body ng-app="app" ng-controller="myCtrl">
+<h3 style="text-align: center;">Expense distribution for Corporate Marketing cost centers</h3>
+  <div class="row" style="margin: 0"> 
+    <div class="col-md-4 col-sm-12">
+      <h6>Expense distribution by cost element</h6>
+      <div d3bar data="data1" length='length'></div>
+    </div>
+    <div class="col-md-6 col-sm-12">
+      <h6>Expense distribution by cost center for Outside Service cost</h6>
+      <div d3tablebar data='data'></div>
+    </div>
+    <div class="col-md-2">
+      <label>Select Cost Center:</label><br/>
+    <select ng-model="id" ng-options="costcenter.Id for costcenter in costcenters"></select>
+    </div>
+  </div> 
+  <div style="height: 500px; overflow: auto;">
+    <table class="table">
+      <thead>
+      <tr>
+        <th>Cost Center Id</th>
+        <th>Cost Center Name</th>
+        <th>Business Unit Name</th>
+        <th>Cost Element Group Name Level 4</th>
+      </tr>
+    </thead>
+      <tbody ng-repeat="costcenter in costcenters">
+        <tr>
+          <td rowspan="10">{{costcenter.Id}}</td>
+          <td>Total</td>
+          <td></td>
+          <td></td>
+          <td style="text-align: right;">123322</td>
+        </tr>
+        <tr>
+          <td rowspan="10" width="10%">{{costcenter.Name}}</td>
+          <td rowspan="10" width="10%">Corporate</td>
+          <td width="30%" style="padding: 8px 0"><div ng-repeat='(key,value) in costcenter.children[0]'>{{key}}</div></td>
+          <td width="30%" style="padding: 8px 0;text-align: right;"><div ng-repeat='(key,value) in costcenter.children[0]' ng-style="setcolor($index)">{{value}}</div></td>
+        </tr>
+      </tbody>
+    </table>
+  </div> 
+</body>
+
+</html>

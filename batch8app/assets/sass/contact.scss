@@ -1,0 +1,33 @@
+$light-grey:#ddd;
+.contact-body {
+    text-align: left;
+    margin: 20px;
+}
+
+.contact-input {
+    width: 100%;
+}
+
+.form-control-feedback {
+    top: 35px;
+    right: 10px;
+}
+
+.confirm-detail {
+    border: 1px solid $light-grey;
+    margin-top: 10px;
+    margin-bottom: 10px;
+    padding-left: 10px;
+    border-radius: 5px;
+    box-shadow: none;
+}
+
+.confirm-detail div {
+    padding-top: 10px;
+    padding-bottom: 10px;
+}
+
+#info-content>div{
+margin-top:10px;
+margin-bottom:10px;
+}

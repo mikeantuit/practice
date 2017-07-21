@@ -1,0 +1,39 @@
+<div id="main_body" ng-controller="logoutCtrl">
+    <div id="root_header">
+        <div class="navbar-header">
+            <button type="button" class="navbar-toggle collapsed" id="top-btn" data-toggle="collapse" data-target="#menu-collapse" aria-expanded="false">
+            </button>
+            <span id="logo"><img src="../assets/images/src/app/logo.png"></span>
+        </div>
+        <div class="collapse navbar-collapse" id="menu-collapse">
+            <ul class="nav navbar-nav navbar-left">
+                <li id="userinfo">{{user}} &nbsp;&nbsp;&nbsp;{{date | date:'MMM dd, y'}}</li>
+            </ul>
+            <ul class="nav navbar-nav navbar-right">
+                <li>
+                    <button class="btn btn-default small-screen-none" ng-click="logout()"><b>Log Out</b></button>
+                </li>
+            </ul>
+        </div>
+    </div>
+    <div>
+        <div id="root_siderbar">
+            <ul>
+                <li ui-sref-active="active"><a ui-sref="root.overview"><span class="glyphicon glyphicon-cloud"></span><span>Overview</span></a></li>
+                <li ui-sref-active="active"><a ui-sref="root.work"><span class="glyphicon glyphicon-tags"></span><span>Work</span></a></li>
+                <li id="root_dropdown" class="parMenu">
+                    <a><span class="glyphicon glyphicon-tint"></span><span>Producer</span></a>
+                    <ul class="root_sub_menu">
+                        <li ui-sref-active="active" class="subMenu"><a ui-sref="root.video"><span class="glyphicon glyphicon-play-circle" ></span><span>Video</span></a></li>
+                        <li ui-sref-active="active" class="subMenu"><a ui-sref="root.map"><span class="glyphicon glyphicon-map-marker"></span><span>Map</span></a></li>
+                        <li ui-sref-active="active" class="subMenu"><a ui-sref="root.cj"><span class="glyphicon glyphicon-leaf"></span><span>Tasklist</span></a></li>
+                    </ul>
+                </li>
+                <li ui-sref-active="active"><a ui-sref="root.contact"><span class="glyphicon glyphicon-th-large"></span><span>Contact</span></a></li>
+            </ul>
+        </div>
+        <div id="root_content">
+            <div ui-view></div>
+        </div>
+    </div>
+</div>

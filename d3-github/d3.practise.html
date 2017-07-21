@@ -1,0 +1,358 @@
+<!DOCTYPE html>
+<html>
+<meta charset="utf-8">
+
+<head>
+    <title>d3-practise</title>
+</head>
+
+<body>
+    <div>
+        <div id="pie"></div>
+        <div id='force'></div>
+        <div id='chord'></div>
+    </div>
+    <script src="d3.min.js"></script>
+    <script>
+    // var width = 400;
+    // var height = 400;
+    // var color = d3.scale.category20()
+
+    // //pie chart
+    // var piedata = [30, 10, 43, 55, 13];
+    // var pie = d3.layout.pie()(piedata);
+    // var outerRadius = 150,
+    //     innerRadius = 0;
+    // var arc = d3.svg.arc()
+    //     .innerRadius(innerRadius)
+    //     .outerRadius(outerRadius)
+    // d3.select('#pie')
+    //     .append('svg')
+    //     .attr('width', width)
+    //     .attr('height', height)
+    //     .selectAll('g')
+    //     .data(pie)
+    //     .enter()
+    //     .append('g')
+    //     .attr('transform', "translate(" + (width / 2) + "," + (width / 2) + ")")
+    //     .append('path')
+    //     .attr('d', function(d, i) {
+    //         return arc(d)
+    //     })
+    //     .attr('fill', function(d, i) {
+    //         return color(i)
+    //     })
+    //     .append('text')
+    //     .attr('transform', function(d) {
+    //         return "translate(" + arc.centroid(d) + ")";
+    //     })
+    //     .attr('text-anchor', 'middle')
+    //     .text(function(d) {
+    //         return d.data
+    //     })
+
+    // //force chart
+    // var forcenode = [{
+    //     name: "桂林"
+    // }, {
+    //     name: "广州"
+    // }, {
+    //     name: "厦门"
+    // }, {
+    //     name: "杭州"
+    // }, {
+    //     name: "上海"
+    // }, {
+    //     name: "青岛"
+    // }, {
+    //     name: "天津"
+    // }];
+    // var forcelink = [{
+    //     source: 0,
+    //     target: 1
+    // }, {
+    //     source: 0,
+    //     target: 2
+    // }, {
+    //     source: 0,
+    //     target: 3
+    // }, {
+    //     source: 1,
+    //     target: 4
+    // }, {
+    //     source: 1,
+    //     target: 5
+    // }, {
+    //     source: 1,
+    //     target: 6
+    // }];
+    // var force = d3.layout.force()
+    //     .nodes(forcenode)
+    //     .links(forcelink)
+    //     .size([width, height])
+    //     .linkDistance(150)
+    //     .charge([-400])
+    // force.start()
+    // var svg = d3.select('#force')
+    //     .append('svg')
+    //     .attr('width', width)
+    //     .attr('height', height)
+    // var svgForceEdges = svg.selectAll('line')
+    //     .data(forcelink)
+    //     .enter()
+    //     .append('line')
+    //     .style('stroke', '#ccc')
+    //     .style('stroke-width', 1)
+    // var svgForceNodes = svg.selectAll('circle')
+    //     .data(forcenode)
+    //     .enter()
+    //     .append('circle')
+    //     .attr('r', 20)
+    //     .style('fill', function(i) {
+    //         return color(i)
+    //     })
+    //     .call(force.drag)
+    // var svgForceTexts = svg.selectAll('text')
+    //     .data(forcenode)
+    //     .enter()
+    //     .append('text')
+    //     .attr('dx', 20)
+    //     .attr('dy', 8)
+    //     .text(function(d) {
+    //         return d.name
+    //     })
+
+    // force.on("tick", function() { //对于每一个时间间隔
+    //     //更新连线坐标
+    //     svgForceEdges.attr("x1", function(d) {
+    //             return d.source.x;
+    //         })
+    //         .attr("y1", function(d) {
+    //             return d.source.y;
+    //         })
+    //         .attr("x2", function(d) {
+    //             return d.target.x;
+    //         })
+    //         .attr("y2", function(d) {
+    //             return d.target.y;
+    //         });
+
+    //     //更新节点坐标
+    //     svgForceNodes.attr("cx", function(d) {
+    //             return d.x;
+    //         })
+    //         .attr("cy", function(d) {
+    //             return d.y;
+    //         });
+
+    //     //更新文字坐标
+    //     svgForceTexts.attr("x", function(d) {
+    //             return d.x;
+    //         })
+    //         .attr("y", function(d) {
+    //             return d.y;
+    //         });
+    // });
+
+    //chord chart
+    // var city_name = ["北京", "上海", "广州", "深圳", "香港"];
+    // var population = [
+    //     [1000, 3045　, 4567　, 1234, 3714],
+    //     [3214, 2000　, 2060　, 124, 3234],
+    //     [8761, 6545　, 3000　, 8045, 647],
+    //     [3211, 1067, 3214, 4000, 1006],
+    //     [2146, 1034　, 6745, 4764, 5000]
+    // ];
+    // var color = d3.scale.category20()
+    // var chord_layout = d3.layout.chord()
+    //     .padding(0.3)
+    //     .sortSubgroups(d3.descending)
+    //     .matrix(population)
+    // var groups = chord_layout.groups()
+    // var chords = chord_layout.chords()
+    // console.log(groups)
+    // console.log(chords)
+    // var chordWidth = 600;
+    // var chordHeigth = 600;
+    // var chordinnerRadius = chordWidth / 2 * 0.7
+    // var chordouterRadius = chordinnerRadius * 1.1
+    // var svg = d3.select('#chord').append('svg').attr('width', chordWidth).attr('height', chordHeigth).append('g').attr('transform',"translate(250,250)")
+    // var outer_acr = d3.svg.arc().innerRadius(chordinnerRadius).outerRadius(chordouterRadius)
+    // var g_outer = svg.append('g')
+    // g_outer.selectAll('path')
+    //     .data(groups)
+    //     .enter()
+    //     .append('path')
+    //     .attr('d', outer_acr)
+    //     .style('fill', function(d) {
+    //         return color(d.index)
+    //     })
+    //     .style('stroke', function(d) {
+    //         return color(d.index)
+    //     })
+    // g_outer.selectAll('text')
+    //     .data(groups)
+    //     .enter()
+    //     .append('text')
+    //     .each(function(d, i) {
+    //         d.angle = (d.startAngle + d.endAngle) / 2;
+    //         d.name = city_name[i];
+    //     })
+    //     .attr('dy', '.35em')
+    //     .attr('transform', function(d) {
+    //         return "rotate(" + (d.angle * 180 / Math.PI) + ")" +
+    //             "translate(0," + -1.0 * (chordouterRadius + 10) + ")" +
+    //             ((d.angle > Math.PI * 3 / 4 && d.angle < Math.PI * 5 / 4) ? "rotate(180)" : "");
+    //     })
+    //     .text(function(d) {
+    //         return d.name;
+    //     })
+    // var chordinner_chord=d3.svg.chord().radius(chordinnerRadius);
+    // svg.append('g')
+    // 	.attr('class','chord')
+    // 	.selectAll('path')
+    // 	.data(chords)
+    // 	.enter()
+    // 	.append('path')
+    // 	.attr('d',chordinner_chord)
+    // 	.attr('fill',function(d,i){
+    // 		return color(d.source.index)
+    // 	})
+    //     .attr('stroke','black')
+    // 	.attr('opacity',0.7)
+    // 	.on('mouseenter',function(d,i){
+    //         console.log(d3.select(this.parentNode))
+    // 		d3.select(this)
+    // 			.style('fill','yellow')
+    // 	})
+    // 	.on('mouseleave',function(d,i){
+    // 		d3.select(this)
+    // 			.transition()
+    // 			.duration(1000)
+    // 			.style("fill",color(d.source.index))
+    // 	})
+
+//cluster,tree
+    // var width = 500,
+    //     height = 500;
+
+    // var cluster = d3.layout.cluster()
+    //     .size([width, height - 200]);
+
+    // var diagonal = d3.svg.diagonal()
+    //     .projection(function(d) { return [d.y, d.x]; });
+
+    // var svg = d3.select("body").append("svg")
+    //     .attr("width", width)
+    //     .attr("height", height)
+    //   .append("g")
+    //     .attr("transform", "translate(40,0)");
+        
+
+
+    // d3.json("d3.practise.city.json", function(error, root) {
+        
+    //   var nodes = cluster.nodes(root);
+    //   var links = cluster.links(nodes);
+      
+    //   console.log(nodes);
+    //   console.log(links);
+
+    //   var link = svg.selectAll(".link")
+    //       .data(links)
+    //       .enter()
+    //       .append("path")
+    //       .attr("class", "link")
+    //       .attr("d", diagonal)
+    //       .attr('fill','none')
+    //       .attr('stroke','#ccc')
+    //       .attr('stroke-width','2px')
+
+    //   var node = svg.selectAll(".node")
+    //       .data(nodes)
+    //       .enter()
+    //       .append("g")
+    //       .attr("class", "node")
+    //       .attr("transform", function(d) { return "translate(" + d.y + "," + d.x + ")"; })
+
+    //   node.append("circle")
+    //       .attr("r", 4.5);
+
+    //   node.append("text")
+    //       .attr("dx", function(d) { return d.children ? -8 : 8; })
+    //       .attr("dy", 3)
+    //       .style("text-anchor", function(d) { return d.children ? "end" : "start"; })
+    //       .text(function(d) { return d.name; });
+    // });
+
+//pack chart
+    var width  = 500;
+    var height = 500;
+    
+    var pack = d3.layout.pack()
+                    .size([ width, height ])
+                    .radius(20);
+    
+    var svg = d3.select("body").append("svg")
+        .attr("width", width)
+        .attr("height", height)
+        .append("g")
+        .attr("transform", "translate(0,0)");
+    
+    
+    d3.json("city2.json", function(error, root) {
+        
+        var nodes = pack.nodes(root);
+        var links = pack.links(nodes);
+        
+        console.log(nodes);
+        console.log(links);
+        
+        svg.selectAll("circle")
+            .data(nodes)
+            .enter()
+            .append("circle")
+            .attr("fill","rgb(31, 119, 180)")
+            .attr("fill-opacity","0.4")
+            .attr("cx",function(d){
+                return d.x;
+            })
+            .attr("cy",function(d){
+                return d.y;
+            })
+            .attr("r",function(d){
+                return d.r;
+            })
+            .on("mouseover",function(d,i){
+                d3.select(this)
+                    .attr("fill","yellow");
+            })
+            .on("mouseout",function(d,i){
+                d3.select(this)
+                    .attr("fill","rgb(31, 119, 180)");
+            });
+        
+        svg.selectAll("text")
+                      .data(nodes)
+                      .enter()
+                      .append("text")
+                      .attr("font-size","10px")
+                      .attr("fill","white")
+                      .attr("fill-opacity",function(d){
+                          if(d.depth == 2)
+                              return "0.9";
+                          else
+                              return "0";
+                      })
+                      .attr("x",function(d){ return d.x; })
+                      .attr("y",function(d){ return d.y; })
+                      .attr("dx",-12)
+                      .attr("dy",1)
+                      .text(function(d){ return d.name; });
+        
+    });
+
+    </script>
+</body>
+
+</html>

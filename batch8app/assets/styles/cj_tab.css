@@ -1,0 +1,105 @@
+.tab-container {
+  
+  margin: 0;
+  padding: 0;
+  max-height: 40px;
+}
+.tab-container ul.nav-tabs {
+  margin: 0;
+  list-style-type: none;
+  line-height: 60px;
+  max-height: 60px;
+  overflow: hidden;
+  display: block;
+  display: -webkit-flex;
+  display: flex;
+  padding-right: 20px;
+  border-bottom: 5px solid #f7f7f7;
+}
+.tab-container ul.nav-tabs > li {
+
+  margin: 5px 10px 10px;
+  padding: 0 30px 0 25px;
+  height: 40px;
+  position: relative;
+  width: 200px;
+  max-width: 200px;
+  min-width: 20px;
+  border: 1px solid #aaa;
+  -moz-box-shadow: 0 5px 10px rgba(0, 0, 0, 0.5);
+  -webkit-box-shadow: 0 5px 10px rgba(0, 0, 0, 0.5);
+  box-shadow: 0 5px 10px rgba(0, 0, 0, 0.5);
+  font-family: megrim, fantasy;
+
+}
+
+.tab-container ul.nav-tabs > li > a {
+  display: block;
+  max-width: 100%;
+  height: 100%;
+  text-decoration: none;
+  color: black;
+  padding: 3px 7px;
+}
+.tab-container ul.nav-tabs > li > a span {
+  overflow: hidden;
+  white-space: nowrap;
+  display: block;
+}
+.tab-container ul.nav-tabs > li > a:focus, .tab-container ul.nav-tabs > li > a:hover {
+  background-color: transparent;
+  border-color: transparent;
+}
+.tab-container ul.nav-tabs > li > a .glyphicon-remove {
+  color: #777;
+  display: inline-block;
+  padding: 3px;
+  font-size: 10px;
+  position: absolute;
+  z-index: 10;
+  top: 7px;
+  right: -10px;
+  -moz-border-radius: 50%;
+  -webkit-border-radius: 50%;
+  border-radius: 50%;
+}
+.tab-container ul.nav-tabs > li > a .glyphicon-remove:hover {
+  background: #d39ea3;
+  color: white;
+  -moz-box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.25);
+  -webkit-box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.25);
+  box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.25);
+  text-shadow: 0 1px 1px rgba(0, 0, 0, 0.25);
+  cursor: pointer;
+}
+.tab-container ul.nav-tabs > li.active {
+  z-index: 2;
+  background-image: -webkit-gradient(linear, 50% 0%, 50% 30, color-stop(0%, #f2f2f2), color-stop(100%, white));
+  background-image: -moz-linear-gradient(#f2f2f2, white 30px);
+  background-image: -webkit-linear-gradient(#f2f2f2, white 30px);
+  background-image: linear-gradient(#f2f2f2, white 30px);
+    -moz-box-shadow: 0 10px 10px rgba(0, 0, 0, 0.5);
+  -webkit-box-shadow: 0 10px 10px rgba(0, 0, 0, 0.5);
+  box-shadow: 0 10px 10px rgba(0, 0, 0, 0.5);
+  border-style: none;
+}
+.tab-container ul.nav-tabs > li.active > a {
+  background-color: transparent;
+  border-color: transparent;
+  border-bottom-color: transparent;
+  font-size: 150%;
+}
+.tab-container ul.nav-tabs > li.active > a:focus, .tab-container ul.nav-tabs > li.active > a:hover {
+  background-color: transparent;
+  border-color: transparent;
+  border-bottom-color: transparent;
+}
+
+.tab-container ul.nav-tabs .glyphicon-plus-sign {
+  font-size: 200%;
+  margin-top: 12px;
+}
+
+.tab-container ul.nav-tabs .glyphicon-plus-sign:hover {
+  cursor: pointer;
+}

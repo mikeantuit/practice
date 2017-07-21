@@ -1,0 +1,258 @@
+[
+    {
+        "Id": 18412,
+        "Name": "TE Branding",
+        "Distribution": 5902743,
+        "children":[{
+        	"Outside Services":0.4112,
+        	"Total Labor":0.2638,
+        	"Depreciation":0.2149,
+        	"Other Variable":0.0482,
+        	"Promotion":0.0266,
+        	"Advertising":0.0259,
+        	"Travel":0.0146,
+        	"Other Fixed":0.0034,
+        	"Null":0.0010
+        }]
+    }, {
+        "Id": 1295099,
+        "Name": "Formula E Series",
+        "Distribution": 3185560,
+        "children":[{
+        	"Outside Services":0.3112,
+        	"Total Labor":0.2638,
+        	"Depreciation":0.2149,
+        	"Other Variable":0.1482,
+        	"Promotion":0.1266,
+        	"Advertising":0.0259,
+        	"Travel":0.0146,
+        	"Other Fixed":0.0034,
+        	"Null":0.0010
+        }]
+    }, {
+        "Id": 17585,
+        "Name": "Internal Communications",
+        "Distribution": 1848040,
+        "children":[{
+        	"Outside Services":0.4112,
+        	"Total Labor":0.2638,
+        	"Depreciation":0.2149,
+        	"Other Variable":0.0482,
+        	"Promotion":0.0266,
+        	"Advertising":0.0259,
+        	"Travel":0.0146,
+        	"Other Fixed":0.0034,
+        	"Null":0.0010
+        }]
+    }, {
+        "Id": 66414,
+        "Name": "Technology Community&Communicatinos",
+        "Distribution": 1355319,
+        "children":[{
+        	"Outside Services":0.4112,
+        	"Total Labor":0.2638,
+        	"Depreciation":0.2149,
+        	"Other Variable":0.0482,
+        	"Promotion":0.0266,
+        	"Advertising":0.0259,
+        	"Travel":0.0146,
+        	"Other Fixed":0.0034,
+        	"Null":0.0010
+        }]
+    }, {
+        "Id": 19008,
+        "Name": "Internet Commerce",
+        "Distribution": 1113833,
+        "children":[{
+        	"Outside Services":0.4112,
+        	"Total Labor":0.2638,
+        	"Depreciation":0.2149,
+        	"Other Variable":0.0482,
+        	"Promotion":0.0266,
+        	"Advertising":0.0259,
+        	"Travel":0.0146,
+        	"Other Fixed":0.0034,
+        	"Null":0.0010
+        }]
+    }, {
+        "Id": 43180,
+        "Name": "Public Communications",
+        "Distribution": 404667,
+        "children":[{
+        	"Outside Services":0.4112,
+        	"Total Labor":0.2638,
+        	"Depreciation":0.2149,
+        	"Other Variable":0.0482,
+        	"Promotion":0.0266,
+        	"Advertising":0.0259,
+        	"Travel":0.0146,
+        	"Other Fixed":0.0034,
+        	"Null":0.0010
+        }]
+    }, {
+        "Id": 801034,
+        "Name": "Communications",
+        "Distribution": 358831,
+        "children":[{
+        	"Outside Services":0.4112,
+        	"Total Labor":0.2638,
+        	"Depreciation":0.2149,
+        	"Other Variable":0.0482,
+        	"Promotion":0.0266,
+        	"Advertising":0.0259,
+        	"Travel":0.0146,
+        	"Other Fixed":0.0034,
+        	"Null":0.0010
+        }]
+    }, {
+        "Id": 19309,
+        "Name": "SVP Corporate Communications",
+        "Distribution": 301385,
+        "children":[{
+        	"Outside Services":0.4112,
+        	"Total Labor":0.2638,
+        	"Depreciation":0.2149,
+        	"Other Variable":0.0482,
+        	"Promotion":0.0266,
+        	"Advertising":0.0259,
+        	"Travel":0.0146,
+        	"Other Fixed":0.0034,
+        	"Null":0.0010
+        }]
+    }, {
+        "Id": 1295102,
+        "Name": "Formula E Series Technical Agreement",
+        "Distribution": 258794,
+        "children":[{
+        	"Outside Services":0.4112,
+        	"Total Labor":0.2638,
+        	"Depreciation":0.2149,
+        	"Other Variable":0.0482,
+        	"Promotion":0.0266,
+        	"Advertising":0.0259,
+        	"Travel":0.0146,
+        	"Other Fixed":0.0034,
+        	"Null":0.0010
+        }]
+    }, {
+        "Id": 17586,
+        "Name": "Corporate Communications",
+        "Distribution": 156299,
+        "children":[{
+        	"Outside Services":0.4112,
+        	"Total Labor":0.2638,
+        	"Depreciation":0.2149,
+        	"Other Variable":0.0482,
+        	"Promotion":0.0266,
+        	"Advertising":0.0259,
+        	"Travel":0.0146,
+        	"Other Fixed":0.0034,
+        	"Null":0.0010
+        }]
+    }, {
+        "Id": 66372,
+        "Name": "Formula E Series",
+        "Distribution": 39087,
+        "children":[{
+        	"Outside Services":0.4112,
+        	"Total Labor":0.2638,
+        	"Depreciation":0.2149,
+        	"Other Variable":0.0482,
+        	"Promotion":0.0266,
+        	"Advertising":0.0259,
+        	"Travel":0.0146,
+        	"Other Fixed":0.0034,
+        	"Null":0.0010
+        }]
+    }, {
+        "Id": 19437,
+        "Name": "Digital Strategy",
+        "Distribution": 15576,
+        "children":[{
+        	"Outside Services":0.4112,
+        	"Total Labor":0.2638,
+        	"Depreciation":0.2149,
+        	"Other Variable":0.0482,
+        	"Promotion":0.0266,
+        	"Advertising":0.0259,
+        	"Travel":0.0146,
+        	"Other Fixed":0.0034,
+        	"Null":0.0010
+        }]
+    }, {
+        "Id": 801098,
+        "Name": "Communications",
+        "Distribution": 4866,
+        "children":[{
+        	"Outside Services":0.4112,
+        	"Total Labor":0.2638,
+        	"Depreciation":0.2149,
+        	"Other Variable":0.0482,
+        	"Promotion":0.0266,
+        	"Advertising":0.0259,
+        	"Travel":0.0146,
+        	"Other Fixed":0.0034,
+        	"Null":0.0010
+        }]
+    }, {
+        "Id": 66429,
+        "Name": "Brand Experience",
+        "Distribution": 3394,
+        "children":[{
+        	"Outside Services":0.4112,
+        	"Total Labor":0.2638,
+        	"Depreciation":0.2149,
+        	"Other Variable":0.0482,
+        	"Promotion":0.0266,
+        	"Advertising":0.0259,
+        	"Travel":0.0146,
+        	"Other Fixed":0.0034,
+        	"Null":0.0010
+        }]
+    }, {
+        "Id": 1193354,
+        "Name": "Communications",
+        "Distribution": 281,
+        "children":[{
+        	"Outside Services":0.4112,
+        	"Total Labor":0.2638,
+        	"Depreciation":0.2149,
+        	"Other Variable":0.0482,
+        	"Promotion":0.0266,
+        	"Advertising":0.0259,
+        	"Travel":0.0146,
+        	"Other Fixed":0.0034,
+        	"Null":0.0010
+        }]
+    }, {
+        "Id": 61301,
+        "Name": "Corp Marketing & Communications (361)",
+        "Distribution": 97,
+        "children":[{
+        	"Outside Services":0.4112,
+        	"Total Labor":0.2638,
+        	"Depreciation":0.2149,
+        	"Other Variable":0.0482,
+        	"Promotion":0.0266,
+        	"Advertising":0.0259,
+        	"Travel":0.0146,
+        	"Other Fixed":0.0034,
+        	"Null":0.0010
+        }]
+    }, {
+        "Id": 1178652,
+        "Name": "Corporate Communications-Asia",
+        "Distribution": 41,
+        "children":[{
+        	"Outside Services":0.4112,
+        	"Total Labor":0.2638,
+        	"Depreciation":0.2149,
+        	"Other Variable":0.0482,
+        	"Promotion":0.0266,
+        	"Advertising":0.0259,
+        	"Travel":0.0146,
+        	"Other Fixed":0.0034,
+        	"Null":0.0010
+        }]
+    }
+]

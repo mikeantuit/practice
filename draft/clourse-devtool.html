@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>dev tool</title>
+</head>
+<script>
+var x = 1; //定义一个全局变量 x
+function A(y) {
+    var x = 2; //定义一个局部变量 x
+    function B(z) { //定义一个内部函数 B
+        console.log(x + y + z);
+    }
+    return B; //返回函数B的引用
+}
+var C = A(1); //执行A,返回B
+C(1); //执行函数B
+</script>
+
+<body>
+</body>
+
+</html>

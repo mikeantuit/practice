@@ -1,0 +1,56 @@
+@media screen and (max-width: 1070px) {
+    #root_content {
+        float: none;
+        width: 100%;
+    }
+    #root_siderbar {
+        float: none;
+        width: 100%;
+        text-align: center;
+    }
+    #root_siderbar ul {
+        padding-left: 0px;
+    }
+    #root_siderbar li.active {
+        width: 100%;
+        border-bottom: 3px dotted #DB5945;
+        border-left-style: none;
+    }
+}
+
+#root_header {
+    font-size: 1.4em;
+    background-color: #F7F7F6;
+    padding: 10px;
+}
+
+#logo img {
+    width: 40px;
+    height: 40px;
+    margin-right: 50px;
+}
+
+#userinfo {
+    margin-top: 5px;
+    width: 250px;
+    float: left;
+    vertical-align: middle;
+}
+
+#logout {
+    margin-top: 10px;
+}
+
+#top-btn {
+    background-color: white;
+    border-color: #ccc;
+    width: 33px;
+    height: 33px;
+    border-radius: 5px;
+    border-style: none;
+    background-image: url(../images/src/app/stack.png);
+}
+
+#top-btn:hover {
+    background-color: #e0e0d1;
+}

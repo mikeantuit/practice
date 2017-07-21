@@ -1,0 +1,347 @@
+<div data-ng-controller="pathController as pathCtrl" class='container-fluid'>
+    <div class='row' style="padding-top: 5px;background:#607d8b;color:black;">
+        <div class='col-md-6 col-md-offset-4'>
+            <h3> Customer Path Analysis</h3>
+        </div>
+        <!--<div class="col-md-6">
+            <form class="form">
+                <div class="form-group">
+                    <div class="daterangepicker-input">
+                        <input disabled date-range-picker type="text" data-ng-model="pathCtrl.datePicker" options="pathCtrl.options" class="form-control"
+                        />
+                    </div>
+                </div>
+            </form>
+        </div>-->
+    </div>
+    <div class="row" style="background: white;margin-left:Opx;margin-right:Opx;margin-top:2Opx; padding-top: 10px;">
+        <div class="col-md-12 card" id="q">
+            <h2>Total Conversions</h2>
+            <table class="table table-responsive table-striped">
+                <thead>
+                    <tr style="color:#7399c6">
+                        <th>Top 10 Customer Conversion Paths</th>
+                        <th style="text-align: right">Conversion (%)</th>
+                    </tr>
+                </thead>
+                <tbody data-ng-repeat="seq in pathCtrl.grouping| orderBy: 1 -percentage1 | limitTo: 10">
+                    <tr>
+                        <td>
+                            <div class="breadcrumb flat" ui-sref="pathAnalysis ({data:seq.data})">
+                                <!--<div class="breadcrumb flat">-->
+                                <a ng-repeat="bread in seq.data" href="" ng-style="{background:bread.color}">{{bread.name}}</a>
+                            </div>
+                        </td>
+                        <td style="color: #7399c6; font-size: 18px;text-align:right;font-weight: bold;vertical-align: middle;">{{seq.percentage | number:2}}</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+    <div class="row" style="background: white;margin-left:Opx;margin-right:Opx;margin-top:20px; padding-top: 10px">
+        <div class="col-md-12" id="q1" , ng-show="pathCtrl.declinedShow">
+            <h2>Total Declined Non-Conversions<button class="pull-right btn btn-primary" ng-click="pathCtrl.show(1)" style="margin-left:5px;">Switch to WalkAway</button>
+                <button class="pull-right btn btn-primary" ng-click="pathCtrl.show(2)">Week-to-Week Comparison (Declined)</button>
+            </h2>
+            <table class="table table-responsive table-striped">
+                <thead>
+                    <tr style="color:#7399c6">
+                        <th>Top 10 Customer Declined Non-Conversion Paths</th>
+                        <th style="text-align: right">Non-Conversion(%)</th>
+                    </tr>
+                </thead>
+                <tbody data-ng-repeat="seq in pathCtrl.grouping1|orderBy:'-percentage'|limitTo:10">
+                    <tr>
+                        <td>
+                            <div class="breadcrumb flat" ui-sref="pathAnalysis({data: seq.data})">
+                                <!--<div class="breadcrumb flat">-->
+                                <a ng-repeat="bread in seq.data" href="" ng-style="{background:bread.color}">{{bread.name}}</a>
+                            </div>
+                        </td>
+                        <td style="color:#7399c6; font-size: 18px;text-align:right;font-weight: bold;vertical-align: middle;">{{ seq.percentage | number: 2 }}</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+        <div class="col-md-12" id="q2" ng-show="pathCtrl.walkawayShow">
+            <h2>Total WalkAway Non-Conversions<button class="pull-right btn btn-primary" ng-click="pathCtrl.show(3)" style="margin-left:5px;">Switch to Declined</button>
+                <button class="pull-right btn btn-primary" ng-click="pathCtrl.show(4)">Week-to-Week Comparison (WalkAway)</button>
+            </h2>
+            <table class="table table-responsive table-striped">
+                <thead>
+                    <tr style="color:#7399c6">
+                        <th>Top 10 Customer WaklAway Non-Conversion Paths</th>
+                        <th style="text-align: right">Non-Conversion(%)</th>
+                    </tr>
+                </thead>
+                <tbody data-ng-repeat="seq in pathCtrl.grouping2|orderBy:'-percentage'|limitTo:10">
+                    <tr>
+                        <td>
+                            <div class="breadcrumb flat" ui-sref="pathAnalysis({data: seq.data})">
+                                <a ng-repeat="bread in seq.data" href="" ng-style="{background:bread.color}">{{bread.name}}</a>
+                            </div>
+                        </td>
+                        <td style="color:#7399c6; font-size: 18px;text-align:right;font-weight: bold;vertical-align: middle;">{{ seq.percentage | number: 2 }}</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+        <div class="col-md-12" ng-show="pathCtrl.declinedWeeklyShow">
+            <h2>Declined Weekly Comparison<button class="pull-right btn btn-primary" ng-click="pathCtrl.show(5)" style="margin-left:5px;">WalkAway Weekly</button>
+                <button class="pull-right btn btn-primary" ng-click="pathCtrl.show(6)">Back</button>
+            </h2>
+            <div class="col-md-6" style="border-bottom: solid 3px white">
+                <table class="table table-responsive table-striped">
+                    <thead>
+                        <tr style="color:#7399c6">
+                            <th>{{pathCtrl.priorDate1|date:'MM/dd/yyyy'}} - {{pathCtrl.today|date:'MM/dd/yyyy'}}</th>
+                            <th style="text-align: right">Non-Conversion(%)</th>
+                        </tr>
+                    </thead>
+                    <tbody data-ng-repeat="seq in pathCtrl.week1|limitTo:5">
+                        <tr>
+                            <td>
+                                <div class="breadcrumb flat" ui-sref="pathAnalysis({data: seq.data})">
+                                    <a ng-repeat="bread in seq.data" href="" ng-style="{background:bread.color}">{{bread.name}}</a>
+                                </div>
+                            </td>
+                            <td style="color: #7399c6; font-size:18px;text-align:right;font-weight: bold;vertical-align: middle;">{{ seq.percentage | number: 2}}</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+            <div class="col-md-6" style="border-bottom: solid 3px white">
+                <table class="table table-responsive table-striped">
+                    <thead>
+                        <tr style="color:#7399c6">
+                            <th>{{pathCtrl.priorDate2|date:'MM/dd/yyyy'}} - {{pathCtrl.priorDate1|date:'MM/dd/yyyy'}}</th>
+                            <th style="text-align: right">Non-Conversion(%)</th>
+                        </tr>
+                    </thead>
+                    <tbody data-ng-repeat="seq in pathCtrl.week2|limitTo:5">
+                        <tr>
+                            <td>
+                                <div class="breadcrumb flat" ui-sref="pathAnalysis({data: seq.data})">
+                                    <a ng-repeat="bread in seq.data" href="" ng-style="{background:bread.color}">{{bread.name}}</a>
+                                </div>
+                            </td>
+                            <td style="color: #7399c6; font-size:18px;text-align:right;font-weight: bold;vertical-align: middle;">{{ seq.percentage | number: 2}}</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+            <div class="col-md-6" style="border-bottom: solid 3px white;margin-top:30px;">
+                <table class="table table-responsive table-striped">
+                    <thead>
+                        <tr style="color:#7399c6">
+                            <th>{{pathCtrl.priorDate2|date:'MM/dd/yyyy'}} - {{pathCtrl.priorDate1|date:'MM/dd/yyyy'}}</th>
+                            <th style="text-align: right">Non-Conversion(%)</th>
+                        </tr>
+                    </thead>
+                    <tbody data-ng-repeat="seq in pathCtrl.week3|limitTo:5">
+                        <tr>
+                            <td>
+                                <div class="breadcrumb flat" ui-sref="pathAnalysis({data: seq.data})">
+                                    <a ng-repeat="bread in seq.data" href="" ng-style="{background:bread.color}">{{bread.name}}</a>
+                                </div>
+                            </td>
+                            <td style="color: #7399c6; font-size:18px;text-align:right;font-weight: bold;vertical-align: middle;">{{ seq.percentage | number: 2}}</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+            <div class="col-md-6" style="border-bottom: solid 3px white;margin-top:30px;">
+                <table class="table table-responsive table-striped">
+                    <thead>
+                        <tr style="color:#7399c6">
+                            <th>{{pathCtrl.priorDate3|date:'MM/dd/yyyy'}} - {{pathCtrl.priorDate2|date:'MM/dd/yyyy'}}</th>
+                            <th style="text-align: right">Non-Conversion(%)</th>
+                        </tr>
+                    </thead>
+                    <tbody data-ng-repeat="seq in pathCtrl.week4|limitTo:5">
+                        <tr>
+                            <td>
+                                <div class="breadcrumb flat" ui-sref="pathAnalysis({data: seq.data})">
+                                    <a ng-repeat="bread in seq.data" href="" ng-style="{background:bread.color}">{{bread.name}}</a>
+                                </div>
+                            </td>
+                            <td style="color: #7399c6; font-size:18px;text-align:right;font-weight: bold;vertical-align: middle;">{{ seq.percentage | number: 2}}</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+            <div class="col-md-6" style="margin-top:30px;">
+                <table class="table table-responsive table-striped">
+                    <thead>
+                        <tr style="color:#7399c6">
+                            <th>{{pathCtrl.priorDate3|date:'MM/dd/yyyy'}} - {{pathCtrl.priorDate2|date:'MM/dd/yyyy'}}</th>
+                            <th style="text-align: right">Non-Conversion(%)</th>
+                        </tr>
+                    </thead>
+                    <tbody data-ng-repeat="seq in pathCtrl.week5|limitTo:5">
+                        <tr>
+                            <td>
+                                <div class="breadcrumb flat" ui-sref="pathAnalysis({data: seq.data})">
+                                    <a ng-repeat="bread in seq.data" href="" ng-style="{background:bread.color}">{{bread.name}}</a>
+                                </div>
+                            </td>
+                            <td style="color: #7399c6; font-size:18px;text-align:right;font-weight: bold;vertical-align: middle;">{{ seq.percentage | number: 2}}</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+            <div class="col-md-6" style="margin-top:30px;">
+                <table class="table table-responsive table-striped">
+                    <thead>
+                        <tr style="color:#7399c6">
+                            <th>{{pathCtrl.priorDate4|date:'MM/dd/yyyy'}} - {{pathCtrl.priorDate3|date:'MM/dd/yyyy'}}</th>
+                            <th style="text-align: right">Non-Conversion(%)</th>
+                        </tr>
+                    </thead>
+                    <tbody data-ng-repeat="seq in pathCtrl.week6|limitTo:5">
+                        <tr>
+                            <td>
+                                <div class="breadcrumb flat" ui-sref="pathAnalysis({data: seq.data})">
+                                    <a ng-repeat="bread in seq.data" href="" ng-style="{background:bread.color}">{{bread.name}}</a>
+                                </div>
+                            </td>
+                            <td style="color: #7399c6; font-size:18px;text-align:right;font-weight: bold;vertical-align: middle;">{{ seq.percentage | number: 2}}</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+        <div class="col-md-12" ng-show="pathCtrl.walkawayWeeklyShow">
+            <h2>WalkAway Weekly Comparison<button class="pull-right btn btn-primary" ng-click="pathCtrl.show(7)" style="margin-left:5px;">Declined Weekly</button>
+                <button class="pull-right btn btn-primary" ng-click="pathCtrl.show(8)">Back</button>
+            </h2>
+            <div class="col-md-6" style="border-bottom: solid 3px white">
+                <table class="table table-responsive table-striped">
+                    <thead>
+                        <tr style="color:#7399c6">
+                            <th>{{pathCtrl.priorDate1|date:'MM/dd/yyyy'}} - {{pathCtrl.today|date:'MM/dd/yyyy'}}</th>
+                            <th style="text-align: right">Non-Conversion(%)</th>
+                        </tr>
+                    </thead>
+                    <tbody data-ng-repeat="seq in pathCtrl.walkawayweek1|limitTo:5">
+                        <tr>
+                            <td>
+                                <div class="breadcrumb flat" ui-sref="pathAnalysis({data: seq.data})">
+                                    <a ng-repeat="bread in seq.data" href="" ng-style="{background:bread.color}">{{bread.name}}</a>
+                                </div>
+                            </td>
+                            <td style="color: #7399c6; font-size:18px;text-align:right;font-weight: bold;vertical-align: middle;">{{ seq.percentage | number: 2}}</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+            <div class="col-md-6" style="border-bottom: solid 3px white">
+                <table class="table table-responsive table-striped">
+                    <thead>
+                        <tr style="color:#7399c6">
+                            <th>{{pathCtrl.priorDate2|date:'MM/dd/yyyy'}} - {{pathCtrl.priorDate1|date:'MM/dd/yyyy'}}</th>
+                            <th style="text-align: right">Non-Conversion(%)</th>
+                        </tr>
+                    </thead>
+                    <tbody data-ng-repeat="seq in pathCtrl.walkawayweek2|limitTo:5">
+                        <tr>
+                            <td>
+                                <div class="breadcrumb flat" ui-sref="pathAnalysis({data: seq.data})">
+                                    <a ng-repeat="bread in seq.data" href="" ng-style="{background:bread.color}">{{bread.name}}</a>
+                                </div>
+                            </td>
+                            <td style="color: #7399c6; font-size:18px;text-align:right;font-weight: bold;vertical-align: middle;">{{ seq.percentage | number: 2}}</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+            <div class="col-md-6" style="border-bottom: solid 3px white;margin-top:30px;">
+                <table class="table table-responsive table-striped">
+                    <thead>
+                        <tr style="color:#7399c6">
+                            <th>{{pathCtrl.priorDate2|date:'MM/dd/yyyy'}} - {{pathCtrl.priorDate1|date:'MM/dd/yyyy'}}</th>
+                            <th style="text-align: right">Non-Conversion(%)</th>
+                        </tr>
+                    </thead>
+                    <tbody data-ng-repeat="seq in pathCtrl.walkawayweek3|limitTo:5">
+                        <tr>
+                            <td>
+                                <div class="breadcrumb flat" ui-sref="pathAnalysis({data: seq.data})">
+                                    <a ng-repeat="bread in seq.data" href="" ng-style="{background:bread.color}">{{bread.name}}</a>
+                                </div>
+                            </td>
+                            <td style="color: #7399c6; font-size:18px;text-align:right;font-weight: bold;vertical-align: middle;">{{ seq.percentage | number: 2}}</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+            <div class="col-md-6" style="border-bottom: solid 3px white;margin-top:30px;">
+                <table class="table table-responsive table-striped">
+                    <thead>
+                        <tr style="color:#7399c6">
+                            <th>{{pathCtrl.priorDate3|date:'MM/dd/yyyy'}} - {{pathCtrl.priorDate2|date:'MM/dd/yyyy'}}</th>
+                            <th style="text-align: right">Non-Conversion(%)</th>
+                        </tr>
+                    </thead>
+                    <tbody data-ng-repeat="seq in pathCtrl.walkawayweek4|limitTo:5">
+                        <tr>
+                            <td>
+                                <div class="breadcrumb flat" ui-sref="pathAnalysis({data: seq.data})">
+                                    <a ng-repeat="bread in seq.data" href="" ng-style="{background:bread.color}">{{bread.name}}</a>
+                                </div>
+                            </td>
+                            <td style="color: #7399c6; font-size:18px;text-align:right;font-weight: bold;vertical-align: middle;">{{ seq.percentage | number: 2}}</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+            <div class="col-md-6">
+                <table class="table table-responsive table-striped" style="margin-top:30px;">
+                    <thead>
+                        <tr style="color:#7399c6">
+                            <th>{{pathCtrl.priorDate3|date:'MM/dd/yyyy'}} - {{pathCtrl.priorDate2|date:'MM/dd/yyyy'}}</th>
+                            <th style="text-align: right">Non-Conversion(%)</th>
+                        </tr>
+                    </thead>
+                    <tbody data-ng-repeat="seq in pathCtrl.walkawayweek5|limitTo:5">
+                        <tr>
+                            <td>
+                                <div class="breadcrumb flat" ui-sref="pathAnalysis({data: seq.data})">
+                                    <a ng-repeat="bread in seq.data" href="" ng-style="{background:bread.color}">{{bread.name}}</a>
+                                </div>
+                            </td>
+                            <td style="color: #7399c6; font-size:18px;text-align:right;font-weight: bold;vertical-align: middle;">{{ seq.percentage | number: 2}}</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+            <div class="col-md-6">
+                <table class="table table-responsive table-striped" style="margin-top:30px;">
+                    <thead>
+                        <tr style="color:#7399c6">
+                            <th>{{pathCtrl.priorDate4|date:'MM/dd/yyyy'}} - {{pathCtrl.priorDate3|date:'MM/dd/yyyy'}}</th>
+                            <th style="text-align: right">Non-Conversion(%)</th>
+                        </tr>
+                    </thead>
+                    <tbody data-ng-repeat="seq in pathCtrl.walkawayweek6|limitTo:5">
+                        <tr>
+                            <td>
+                                <div class="breadcrumb flat" ui-sref="pathAnalysis({data: seq.data})">
+                                    <a ng-repeat="bread in seq.data" href="" ng-style="{background:bread.color}">{{bread.name}}</a>
+                                </div>
+                            </td>
+                            <td style="color: #7399c6; font-size:18px;text-align:right;font-weight: bold;vertical-align: middle;">{{ seq.percentage | number: 2}}</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+    <!--<div class="row" style="padding-top:20px;">
+        <div class="col-md-12">
+            <div style="background: white" id="chordChart" class="col—md-6 col-md-offset—3 card">
+                <h2>Channel Co-occurrence</h2>
+            </div>
+        </div>
+    </div>-->
+</div>

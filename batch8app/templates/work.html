@@ -1,0 +1,79 @@
+<div id="work_page" ng-controller='ImageController' style="margin-top: 10px; margin-right: 10px; ">
+    <div id="work_title" class="row">
+        <div id="btn_group" class="col-xs-12 col-md-12 col-lg-5">
+            <div class="btn-group" uib-dropdown is-open="status.isopen">
+                <button id="work_drop_down" type="button" class="btn btn-info" uib-dropdown-toggle ng-disabled="disabled" style="height:36px;font-size:1em;padding:2px 12px">
+                    Select design <span class="caret"></span>
+                </button>
+                <ul class="uib-dropdown-menu" role="menu" aria-labelledby="single-button">
+                    <li role="menuitem" class="work_pointer"><a style="font-size:1.3em;" ng-click="togglePage('list')">list</a></li>
+                    <li role="menuitem" class="work_pointer"><a style="font-size:1.3em;" ng-click="togglePage('card')">card</a></li>
+                </ul>
+            </div>
+            <button class="btn btn-danger" style="height:36px;font-size:1em;padding:2px 12px;" ng-click="toggleAdd()">Add Item</button>
+            <item-dialog title="Add Item" visible="addVisable" item="editItem"></item-dialog>
+        </div>
+        <div class="row col-xs-12 col-md-12 col-lg-7 text-right">
+            <div class="col-xs-12 col-md-3 col-lg-3 " style="padding-right:0px;">
+                <input type="text" placeholder='Name' name="name" ng-model='filter_name' class="work-input"> </div>
+            <div class="col-xs-12 col-md-3 col-lg-3" style="padding-right:0px;">
+                <input type="text" placeholder='Author' name="author" ng-model='filter_author' class="work-input"> </div>
+            <div class="col-xs-12 col-md-3 col-lg-3" style="padding-right:0px;">
+                <input type="text" placeholder='Like' name="like" ng-model='filter_like' class="work-input"> </div>
+            <div class="col-xs-12 col-md-3 col-lg-3" style="padding-right:0px;">
+                <input type="text" placeholder='Comment' name="comment" ng-model='filter_comment' class="work-input">
+            </div>
+        </div>
+    </div>
+    <div id="work_delete_item_body" ng-show="isdeleteVisible"></div>
+    <div id="work_delete_item" ng-show="isdeleteVisible">
+        <h2>Delete item?</h2>
+        <p>This will permanently delete the item from the table and the action cannot be reversed. If you are sure, please comfirn with the appropriate action</p>
+        <button class="btn btn-lg btn-danger" ng-click="Submit_delete()">Yes, I am sure</button>
+        <button class="btn btn-lg btn-default" ng-click="Cancel_delete()">Cancel</button>
+    </div>
+    <div ng-show="myDropDown=='list'">
+        <table class='table table-hover'>
+            <thead>
+                <th ng-mouseover="reverse=true;order('title', reverse)">Name</th>
+                <th ng-mouseover="reverse=!reverse;order('author', reverse)">author</a>
+                </th>
+                <th ng-mouseover="reverse=!reverse;order('like',reverse)">Like</th>
+                <th ng-mouseover="reverse=!reverse;order('comment',reverse)">Comment</th>
+                <th>Modify</th>
+                <th>Remove</th>
+            </thead>
+            <tbody>
+                <tr ng-repeat="image in display_images | filter: filter_name |filter: filter_author | filter: filter_like |filter: filter_comment ">
+                    <!-- <td ng-bind='image.id'></td> -->
+                    <td ng-bind='image.title'></td>
+                    <td ng-bind='image.author'></td>
+                    <td ng-bind='image.like'></td>
+                    <td ng-bind='image.comment'></td>
+                    <!-- <td ng-bind='image.image'></td> -->
+                    <td><a ng-click='toggleEdit(image)' class="work_pointer">Edit</a></td>
+                    <td><a ng-click='removeImage($index)' class="work_pointer">Delete</a></td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+    <item-dialog title="Edit Item" visible="editVisable" item="editItem"></item-dialog>
+    <div ng-show="myDropDown=='card'" id="drop_down_card" class="row">
+        <div class="col-xs-12 col-ms-4 col-md-4 col-lg-4" ng-repeat="image in display_images | filter: filter_name |filter: filter_author | filter: filter_like |filter: filter_comment |orderBy: 'id'">
+            <div class=" thumbnail" style="border-style:none;margin-bottom:30px;text-align:left;">
+                <img ng-src={{image.image}}></img>
+                <!-- <td ng-bind='image.id'></td> -->
+                <strong><div ng-bind='image.title'></div></strong>
+                <div style="color:green">
+                    <div ng-bind='image.author'></div>
+                </div>
+                <div ng-bind='image.like'></div>
+                <div ng-bind='image.comment'></div>
+                <div class="work_link">
+                    <a ng-click='toggleEdit(image)'>Edit |</a>
+                    <a ng-click='removeImage($index)'>Delete</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,64 @@
+<div data-ng-controller="attAnalysisController as attAnalysisCtrl" class="container-fluid">
+    <div class="row" style="padding-top:5px;background: #607d8b;color:black;">
+        <div class="col-md-6">
+            <h1>Attribution Analysis <button class="btn btn-sm btn-primary" ng-click="attAnalysisCtrl .modalshow()">Totals View</button></h1>
+        </div>
+        <!--<div class="col-md-6">
+            <form class="form">
+                <div class="form-group">
+                    <div class="daterangepicker-input"> <input date-range-picker type="text" data-ng-model="attAnalysisCtrl.datePicker" options="attAnalysisCtrl.options"
+                            class="form-control" />
+                    </div>
+                </div>
+            </form>
+        </div>-->
+    </div>
+    <div class="row" style="margin-top:1Opx;">
+        <div class="col-md-12">
+            <div id="linechartatt" style="padding-right:15px;"></div>
+        </div>
+    </div>
+    <div class="row" style="margin-top:1Opx;">
+        <div class="col-md-12">
+            <div id="linechartattdrilldown"></div>
+        </div>
+    </div>
+    <div class="row" style="padding-top: 5px;margin-top: 1Opx;" ng-show="attAnalysisCtrl.isShow">
+        <div class="col-md-12" style="background: #607d8b; color: black;">
+            <h1>Cross Channel Attribution Table <button class="btn btn-sm btn-primary" ng-click="attAnalysisCtrl.isShow=!attAnalysisCtrl.isShow">Tree Map</button></h1>
+        </div>
+        <div class="col-md-12">
+            <div id="grid" ui-grid="attAnalysisCtrl.gridOptions" ui-grid-auto-resize style="text-align: center;color:black;" ng-style="attAnalysisCtrl.getTableHeight()"></div>
+        </div>
+    </div>
+    <div class="row" style="padding-top: 5px;margin-top: 1Opx;" ng-hide="attAnalysisCtrl.isShow">
+        <div class="col-md-12" style="background: #607d8b; color: black;">
+            <h1>Cross Channel Attribution Treemap <button class="btn btn-sm btn-primary" ng-click="attAnalysisCtrl.isShow=!attAnalysisCtrl.isShow">Table</button></h1>
+        </div>
+        <div class="col-md-12">
+            <div id="treeChart" class="col-md-12 grid" style="height:300px"></div>
+        </div>
+    </div>
+    <!--<div class="row" style="margin-top:10px;">
+        <div class="col-md-12">
+            <div id="grid" ui-grid="attAnalysisCtrl.gridOptions" ng-show="attAnalysisCtrl.isShow" style="text-align: center"></div>
+        </div>
+        <div id="treeChart" ng-hide="attAnalysisCtrl.isShow" class="col-md-12 grid" style="height:300px"></div>
+    </div>-->
+    <div id="myModal" class="modal fade" role="dialog">
+        <div class="modal-dialog modal-admin" style="width:650px;">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal">&times;</button>
+                    <h4 class="modal-title">Multi Channel Attribution</h4>
+                </div>
+                <div class="modal-body">
+                    <div id="piechartatt"></div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

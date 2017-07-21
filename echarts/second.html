@@ -1,0 +1,60 @@
+<h1 style="text-align: center;">Outside Service for Corporate Marketing cost centers
+	<button ui-sref="first" class="btn btn-primary">
+  Back
+  </button>
+  <button ui-sref="third" class="btn btn-primary">
+  Next
+  </button>
+</h1>
+<div class="row">
+	<div class="col-md-10">
+		<div class="row">
+			<h3 style="padding-left:40px; ">Expense Distribution by Commodity Name</h3>
+			<ng-echarts class="col-xs-12" ec-config="config1" ec-option="option1" ec-dispatchaction="dispatchaction1" style="height: 400px"></ng-echarts>
+		</div>
+		<div class="row">
+			<h3 style="padding-left:40px; ">Expense Distribution by Vendor for Brand Media Mktg</h3>
+			<ng-echarts class="col-xs-12" ec-config="config2" ec-option="option2" ec-dispatchaction="dispatchaction2" style="height: 400px"></ng-echarts>
+		</div>
+	</div>
+	<div class="col-md-2">
+		<label>Select Cost Center:</label>
+        <br/>
+        <select style="width: 80%" ng-model="id" ng-options="costcenter.Id for costcenter in costcenters"></select>
+        <label>Commodity Short Name</label>
+        <br/>
+        <select style="width: 80%">
+        	<option>(All)</option>
+        </select>
+        <label>General Ledger Account Description</label>
+        <br/>
+        <select style="width: 80%">
+        	<option>(All)</option>
+        </select><label>Vendor Id</label>
+        <br/>
+        <select style="width: 80%">
+        	<option>(All)</option>
+        </select><label>Fiscal Year Id</label>
+        <br/>
+        <select style="width: 80%" ng-model='year'>
+        	<option>2016</option>
+        	<option>2015</option>
+        	<option>2014</option>
+        	<option>2013</option>
+        </select>
+        <h6>Fiscal Year Id: {{year}}</h6>
+        <table class="table">
+        	<thead>Cost Center Id</thead>
+        	<tbody>
+        		<tr >
+        			<td>Grand Total</td>
+        			<td>8,039,154</td>
+        		</tr>
+        		<tr ng-repeat="data in datas">
+        			<td>{{data.id}}</td>
+        			<td ng-style="setcolor($index)">{{data.value}}</td>
+        		</tr>
+        	</tbody>
+        </table>
+	</div>
+</div>

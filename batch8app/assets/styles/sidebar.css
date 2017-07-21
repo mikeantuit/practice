@@ -1,0 +1,95 @@
+@media screen and (min-width: 1071px) {
+    #root_siderbar ul {
+        width: 100%;
+    }
+    #root_siderbar li.active {
+        border-left: 3px solid #DB5945;
+        border-bottom-style: none;
+    }
+    #root_siderbar {
+        margin-top: 20px;
+        margin-right: 40px;
+        width: 230px;
+        float: left;
+        text-align: left;
+    }
+    #root_content {
+        overflow: hidden;
+    }
+    #root_dropdown:hover .root_sub_menu {
+        visibility: visible;
+    }
+    #root_dropdown {
+        position: relative;
+    }
+    .root_sub_menu {
+        background-color: #DB5945;
+        visibility: hidden;
+        position: absolute;
+        left: 160px;
+        top: 0px;
+        z-index: 5;
+        padding: 0px;
+    }
+}
+
+#root_siderbar {
+    font-weight: bold;
+    font-size: 1.7em;
+}
+
+#root_siderbar ul {
+    list-style-type: none;
+}
+
+#root_siderbar ul li,
+#root_dropdown ul li {
+    text-decoration: none;
+    vertical-align: middle;
+    line-height: 180%;
+}
+
+#root_siderbar ul li a,
+#root_dropdown ul li a {
+    color: black;
+}
+
+#root_siderbar ul li span:first-child,
+#root_dropdown ul li span:first-child {
+    font-size: 0.8em;
+}
+
+#root_siderbar ul li span,
+#root_dropdown ul li span {
+    margin-right: 10px;
+    margin-left: 10px;
+}
+
+#root_siderbar ul li:hover,
+#root_dropdown ul li:hover {
+    color: #FEFEFE;
+    background-color: #DB5945;
+}
+
+#root_siderbar ul li a,
+#root_dropdown ul li a {
+    text-decoration: none;
+}
+
+#root_siderbar ul li:hover>a,
+#root_dropdown ul li:hover>a {
+    color: #FEFEFE;
+    text-decoration: none;
+}
+
+#root_content {
+    font-size: 1.3em;
+    text-align: left;
+    margin-left: 20px;
+    padding: 10px;
+}
+
+#root_siderbar li.active>a,
+#root_dropdown li.active>a {
+    color: #FF5C33;
+}

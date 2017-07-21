@@ -1,0 +1,38 @@
+<div ng-controller="pathsController as pathsCtrl" class="container-fluid">
+	<div class="row" style="padding-top:5px;background: #29323a;color:#7399c6; ">
+		<div class="col-md-6 col-md-offset-5">
+			<h3>Customer Path</h3>
+		</div>
+	</div>
+	<div class="row" style="padding-top: 10px;background-color: white">
+
+		<div class="col-md-12" id="q">
+			<table class="table table-hover table-responsive">
+				<thead>
+					<tr>
+						<th>Top 20 Channel Grouping Path</th>
+						<th>Conversion</th>
+					</tr>
+				</thead>
+				<tbody ng-repeat="seq in pathsCtrl.grouping">
+					<td id="{{seq.id}}"></td>
+					<td style="color:#7399c6;font-size: 18px;font-weight: bold;text-align: center;vertical-align: middle">{{seq.percentage}}</td>
+				</tbody>
+			</table>
+		</div>
+		<div class="col-md-12">
+			<div id='sun' class="col-md-6 card">
+				<div id="main">
+					<div id="sequence"></div>
+					<div id="sunburst">
+						<div id="explanation" style="visibility: hidden">
+							<span id="percentage"></span></br>
+							of visits begin with this sequence of pages
+						</div>
+					</div>
+				</div>
+			</div>
+			<div id="chordChart" class="col-md-6 card"></div>
+		</div>
+	</div>
+</div>

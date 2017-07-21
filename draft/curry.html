@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>curry</title>
+</head>
+<body>
+<script>
+	function add(){
+		var _args=[].slice.call(arguments)
+		var adder=function(){
+			var _adder=function(){
+				[].push.apply(_args,[].slice.call(arguments));
+				return _adder;
+			};
+			_adder.toString=function(){
+				return _args.reduce(function(a,b){
+					return a+b;
+				})
+			}
+			return _adder;
+		}
+		return adder.apply(null,[].slice.call(arguments))
+	}
+	console.log(add(1)(2)(3))
+</script>
+</body>
+</html>

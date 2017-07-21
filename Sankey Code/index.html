@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Sankey</title>
+    <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.7/css/bootstrap.css">
+    <link rel="stylesheet" type="text/css" href="main.css">
+    <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/angular-ui-grid/4.0.4/ui-grid.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.1/jquery.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/d3/3.5.17/d3.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/lodash.js/4.17.4/lodash.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.17.1/moment.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-daterangepicker/2.1.25/daterangepicker.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.7/js/bootstrap.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.6/angular.min.js"></script>
+    <script src="daterangepicker.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/angular-ui-router/0.4.2/angular-ui-router.js"></script>
+    <!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/highcharts/5.0.7/highcharts.js"></script> -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/highcharts/5.0.7/highstock.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/highcharts/5.0.7/js/modules/funnel.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/highcharts/5.0.7/js/modules/drilldown.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/highcharts/5.0.7/js/modules/heatmap.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/highcharts/5.0.7/js/modules/treemap.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/angular-ui-grid/4.0.4/ui-grid.js"></script>
+    <script src="router.js"></script>
+    <script src="sankey.js"></script>
+    <script src="attributeCtrl.js"></script>
+    <script src="nodedetailCtrl.js"></script>
+    <script src="pathCtrl.js"></script>
+    <script src="fullpath.js"></script>
+    <script src="pathAnalysisCtrl.js"></script>
+    <script src="attAnalysisCtrl.js"></script>
+    <script src="attDashboardCtrl.js"></script>
+</head>
+
+<body ng-app="app">
+    <!--<div class="row" style="background-color: #29323a">
+        <h2 class="col-md-3" style="color:#7399c6;margin-left: 20px;">Attribution Hub</h2>
+        <div class="col-md-8">
+            <div ui-sref="attribute" style="margin-top: 20px;color:#7399c6;display:inline-block"><a>Customer Journey</a></div>
+            <div ui-sref="path" style="margin-top: 20px;color:#7399c6;display:inline-block"><a>Customer Path</a></div>
+            <div ui-sref="fullpath" style="margin-top: 20px;color:#7399c6;display:inline-block"><a>Customer FullPath</a></div>
+        </div>
+    </div>-->
+    <nav class="navbar navbar-default" style="background-color: #607d8b;margin-bottom: 0;border:0;border-bottom:1px solid #9e9e9e;border-radius:0;">
+        <div class="container-fluid">
+            <!-- Brand and toggle get grouped for better mobile display -->
+            <div class="navbar-header">
+                <a class="navbar-brand" href="#" style="color:black;font-size: 25px;">Attribution Hub</a>
+            </div>
+
+            <!-- Collect the nav links, forms, and other content for toggling -->
+            <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+                <ul class="nav navbar-nav">
+                    <li><a ui-sref="attribute" style="color:black;">Customer Journey</a></li>
+                    <!--<li><a ui-sref="path" style="color:black;">Cusomer Path</a></li>-->
+                    <li><a ui-sref="fullpath" style="color:black;">Cusomer Path</a></li>
+                    <li><a ui-sref="attributionAnalysis" style="color:black;">Attribution Analysis</a></li>
+                    <li><a ui-sref="dashboard" style="color:black;">Dashboard</a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+    <ui-view></ui-view>
+</body>
+
+</html>

@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Navigation</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+  	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+</head>
+
+<body>
+</body>
+<script type="text/json" id='data'>
+	[{
+    "name": "one"
+}, {
+    "name": "two",
+    "sub": [{
+        "name": "subone"
+    }, {
+        "name": "subtwo"
+    }]
+}, {
+    "name": "three"
+}]
+</script>
+<script type="text/javascript">
+var navJson=JSON.parse(document.getElementById('data').innerHTML)
+var bodyTag = document.getElementsByTagName("body")[0]
+var navTag= document.createElement('nav')
+navTag.setAttribute('class','navbar navbar-inverse')
+bodyTag.appendChild(navTag)
+function createNav(obj,node,depth) {
+    var ulTag = document.createElement('ul')
+    if(depth==1){
+    	ulTag.setAttribute('class','nav navbar-nav')
+    }else{
+    	ulTag.setAttribute('class','dropdown-menu')
+    }
+    node.appendChild(ulTag)
+    for (var i = 0; i < obj.length; i++) {
+        var liTag = document.createElement('li')
+        var aTag=document.createElement('a')
+        ulTag.appendChild(liTag)
+        liTag.appendChild(aTag)
+        aTag.setAttribute('href','#')
+        aTag.innerHTML = obj[i]["name"]
+        if (obj[i].sub) {
+        	liTag.setAttribute('class','dropdown')
+        	aTag.setAttribute('class','dropdown-toggle')
+        	aTag.setAttribute('data-toggle','dropdown')
+        	depth++;
+            createNav(obj[i].sub, liTag,depth)
+        }
+    }
+}
+createNav(navJson, navTag,1)
+</script>
+
+</html>
+
+
+
+
+

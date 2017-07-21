@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Promise</title>
+</head>
+<script>
+(function(window, undefined) {
+    var final = function(status, value) {
+        var promise = this,
+            fn, st;
+        if (promise._statue !== 'pending') {
+            return
+        }
+        setTimeout(function() {
+            promise._status = status;
+            st = promise._status === 'FULFILLED';
+            queue = promise[st ? '_resolves', '_rejects']
+            while (fn = queue.shift()) {
+                value = fn.call(promise, value) || value;
+            }
+            promise[st ? '_value', '_reason'] = value;
+            promise['_resolves'] = promise['_rejects'] = undefined;
+        })
+    }
+    var Promise = function(resolver) {
+        if (!(typeof resolver === 'function'))
+            throw new TypeError('You must pass a resolver function as the first argument to the promise constructor');
+        if (!(this instanceof Promise)) return new Promise(resolver);
+        var promise = this;
+        promise._value;
+        promise._reason;
+        promise._status = 'pending';
+        promise._resolves = [];
+        promise._rejects = [];
+        var resolve = function(value) {
+            final.apply(promise, ['FULFILLED'].concat([value]))
+        }
+        var reject = function(reason) {
+            final.apply(promise, ['REJECTED'].concat([reason]))
+        }
+        resolver(resolve, reject)
+    }
+    Promise.prototype.then = function(onFulfilled, onRejected) {
+        var promise = this;
+        // 每次返回一个promise，保证是可thenable的
+        return new Promise(function(resolve, reject) {
+            function handle(value) {
+                // 這一步很關鍵，只有這樣才可以將值傳遞給下一個resolve
+                var ret = typeof onFulfilled === 'function' && onFulfilled(value) || value;
+
+                //判断是不是promise 对象
+                if (ret && typeof ret['then'] == 'function') {
+                    ret.then(function(value) {
+                        resolve(value);
+                    }, function(reason) {
+                        reject(reason);
+                    });
+                } else {
+                    resolve(ret);
+                }
+            }
+
+            function errback(reason) {
+                reason = typeof onRejected === 'function' && onRejected(reason) || reason;
+                reject(reason);
+            }
+
+            if (promise._status === 'PENDING') {
+                promise._resolves.push(handle);
+                promise._rejects.push(errback);
+            } else if (promise._status === FULFILLED) { // 状态改变后的then操作，立刻执行
+                handle(promise._value);
+            } else if (promise._status === REJECTED) {
+                errback(promise._reason);
+            }
+        });
+    }
+})(window)
+</script>
+
+<body>
+</body>
+
+</html>

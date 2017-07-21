@@ -1,0 +1,49 @@
+<div data-ng-controller="attDashboardController as attDashboardCtrl" class="container-fluid">
+    <div class="row" style="padding-top: 5px; background: #607d8b; color: black;">
+        <div class="col-md-6 col-md-offset-5">
+            <h3>Attribution Dashboard</h3>
+        </div>
+        <!--<div class="col-md-6">
+            <form class="form">
+                <div class="form-group">
+                    <div class="daterangepicker-input">
+                        <input date-range-picker type="text" data-ng-model="attDashboardCtrl.datePicker" options="attDashboardCtrl.options" class="form-control"
+                        />
+                    </div>
+                </div>
+            </form>
+        </div>-->
+    </div>
+    <div class="row" style="color:white;background:#41455a;">
+        <div class="col-md-6 card" style="border-right:2px solid #292929">
+            <h4 style="text-align:center;padding-top:1Opx;text-transform:uppercase">Channel Efficiency</h4>
+            <h5 style="text-align:center">66%</h5>
+        </div>
+        <div class="col-md-6 card">
+            <h4 style="text-align: center;padding-top: 1Opx; text-transform:uppercase">Channel Effectiveness</h4>
+            <h5 style="text-align:center">78%</h5>
+        </div>
+    </div>
+
+    <div class="row" style="margin-top:1Opx">
+        <div class="col-md-6">
+            <div id="linechart"></div>
+        </div>
+        <div class="col-md-6">
+            <div id="sublinechart"></div>
+        </div>
+    </div>
+    <div class="row" style="margin-top:1Opx;">
+        <div style="margin-top:44px" class="col-md-6">
+            <div id="piechart"></div>
+        </div>
+        <div class="col-md-6" style="padding-top:10px;">
+            <div ng-show="attDashboardCtrl.isShow"><button class="btn btn-primary btn-small" ng-click="attDashboardCtrl.isShow=!attDashboardCtrl.isShow">Map View</button>
+                <div id="grid" ui-grid="attDashboardCtrl.gridOptions" ui-grid-auto-resize style="text-align: center;color:black;" ng-style="attDashboardCtrl.getTableHeight()"></div>
+            </div>
+            <div ng-hide="attDashboardCtrl.isShow"><button class="btn btn-primary btn-small" ng-click="attDashboardCtrl.isShow=!attDashboardCtrl.isShow">Table View</button>
+                <div id="treeChart" class="grid" style="height:300px"></div>
+            </div>
+        </div>
+    </div>
+</div>

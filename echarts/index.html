@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+
+<head lang="en">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="initial-scale=1, user-scalable=false, maximum-scale=1">
+    <title>echarts-ng</title>
+    <link rel="stylesheet" href="bower_components/bootstrap/dist/css/bootstrap.css">
+    <style>
+    .row div{
+    	/*padding: 0*/
+    }
+	.table>thead>tr>th{
+	  border-bottom: 0
+	}
+	td div{
+	  border-bottom: 1px solid #ddd;
+	  padding: 5px 0;
+	}
+    </style>
+</head>
+
+<body ng-app="example">
+<ui-view></ui-view> 
+    <script src="bower_components/angular/angular.js"></script>
+    <script src="node_modules/echarts/dist/echarts.js"></script>
+    <script src="node_modules/echarts/theme/macarons.js"></script>
+    <script src="angular-ui-router.js"></script>
+    <script src="ng-echarts.js"></script>
+    <script src="app.js"></script>
+    <script src="controller.js"></script>
+
+</html>

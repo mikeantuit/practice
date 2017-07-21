@@ -1,0 +1,25 @@
+<html>
+<header>
+    Design Pattern
+</header>
+<script>
+    // 单例模式
+    function zaomen() {
+        console.log(this)
+        if (!(this instanceof zaomen)) {
+            return new zaomen()
+        }
+        this.suo = "suo";
+        this.create = function () {
+            return this.suo;
+        }
+    }
+    var a = new zaomen()
+    console.log(a.create())
+</script>
+
+<body>
+
+</body>
+
+</html>

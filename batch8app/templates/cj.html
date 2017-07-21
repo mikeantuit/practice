@@ -1,0 +1,57 @@
+<div ng-controller="tabController">
+
+	<uib-tabset class="tab-container">
+		<uib-tab ng-repeat="tab in tabs" active="tab.active" tab-highlight>
+			<tab-heading>
+				<span>{{date | date:'MM/dd/yyyy'}}</span> <i class="glyphicon glyphicon-remove" ng-click="removeTab($event, $index)"></i> 
+			</tab-heading>
+			
+			<h1>Welcome, Today is {{date | date:'fullDate'}}</h1>
+
+					<div ng-controller="calendarController">
+
+						<div  id="calendar">
+
+							<div>
+								<div style="display: inline-block; min-height:290px;">
+									<uib-datepicker ng-model="dt" min-date="minDate" show-week="true" class="well well-sm" custom-class="getDayClass(date, mode)"></uib-datepicker>
+								</div>
+
+							</div>
+
+							<button type="button" class="btn btn-sm btn-info" ng-click="today()">Today</button>
+
+							<button type="button" class="btn btn-sm btn-default" ng-click="toggleMin()" >Enable Passed date</button>
+
+						</div>
+						<!-- ================================================================================================= -->
+
+
+						<!-- this is the tasklist part -->
+						<div class="todo-wrapper">
+
+							  <h3>Task on <span>{{dt | date:'fullDate'}} </span></h3>
+
+						      <h2> You've got <span class="emphasis">{{getTotalTasks()}}</span> things to do</h2>
+
+						      <ul id="tasklist">
+							        <li ng-repeat="task in tasks" class="addedtask">
+								          <input type="checkbox" ng-model="task.done" />
+								          <span class="done-{{task.done}}">{{task.text}}</span>
+							        </li>
+						      </ul>
+
+						      <form>
+							        <input class="add-input" placeholder="I need to..." type="text" ng-model="formTaskText" ng-model-instant />
+							        <button class="add-btn" ng-click="ADDTask()"><h3>Add</h3></button>
+						      </form>
+						      
+						      <button class="clear-btn" ng-click="clearCompleted()">Clear completed</button>
+						</div>
+						<!-- ============================================================== -->
+					</div>
+
+		</uib-tab>
+		<i class="glyphicon glyphicon-plus-sign" ng-click="addTab()"></i>
+	</uib-tabset>
+</div>

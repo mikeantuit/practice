@@ -1,0 +1,107 @@
+<div ng-controller="contactCtrl" class="contact-body">
+    <h2>Contact</h2>
+    <div id="contact-div">
+        <!-- Nav tabs -->
+        <ul class="nav nav-tabs nav-justified" role="tablist">
+            <li role="presentation" class="active" id="info-li"><a href="#info" aria-controls="info" role="tab" data-toggle="tab">Information</a></li>
+            <li role="presentation" class="ng-class:info_form.$valid &&locationChange?'':'disabled'" id="query-li"><a href="#query" aria-controls="query" role="tab" data-toggle="tab">Query</a></li>
+            <li role="presentation" class="ng-class:query_form.$valid &&categoryChange?'':'disabled'" id="confirm-li"><a href="#confirm" aria-controls="confirm" role="tab" data-toggle="tab">Confirmation</a></li>
+        </ul>
+       
+        <div class="tab-content">
+            <div role="tabpanel" class="tab-pane fade in active" id="info">
+                <form id="info-form" name="info_form">
+                    <div class="form-group has-feedback">
+                        <label class="control-label" for="firstname">First Name</label>
+                        <input type="text" class="form-control" id="firstname" ng-model="contact.firstname" required>
+                        <span class="glyphicon glyphicon-tree-conifer form-control-feedback"></span>
+                    </div>
+                    <div class="form-group has-feedback">
+                        <label class="control-label" for="lastname">Last Name</label>
+                        <input type="text" class="form-control" id="lastname" ng-model="contact.lastname" required>
+                        <span class="glyphicon glyphicon-tree-deciduous form-control-feedback"></span>
+                    </div>
+                    <div class="form-group has-feedback">
+                        <label class="control-label" for="email">Email</label>
+                        <input type="email" class="form-control" id="email" ng-model="contact.email" required>
+                        <span class="glyphicon glyphicon-envelope form-control-feedback"></span>
+                    </div>
+                    <div class="form-group has-feedback">
+                        <label class="control-label" for="phone">Phone</label>
+                        <input type="text" class="form-control" id="phone" ng-model="contact.phone" required>
+                        <span class="glyphicon glyphicon-earphone form-control-feedback"></span>
+                    </div>
+                    <div>
+                        <label for="location"></label>
+                        <select class="form-control" id="location" ng-change="changeLocation()" ng-options="option.title for option in contact.locations track by option.value" ng-model="contact.location">
+                            <!-- <option value=""></option> -->
+                        </select>
+                    </div>
+                    <div>
+                        <pre class="alert alert-info" style="margin-top:25px;">The current time is: {{contact.currentTime | date:'medium' }}</pre>
+                    </div>
+                    <div>
+                        <button type="button" id="btn-info" ng-disabled="!(info_form.$valid &&locationChange)" class="btn btn-primary">NEXT</button>
+                    </div>
+                </form>
+            </div>
+            <div role="tabpanel" class="tab-pane fade" id="query">
+                <form id="query-form" name="query_form">
+                    <div class="form-group has-feedback">
+                        <label class="control-label" for="title">Title</label>
+                        <input type="text" class="form-control" id="title" ng-model="contact.title" required>
+                    </div>
+                    <div class="form-group has-feedback">
+                        <label class="control-label" for="content">Content</label>
+                        <textarea type="text" class="form-control" ng-model="contact.content" id="content" rows="6" required></textarea>
+                    </div>
+                    <div>
+                        <label for="category">Catetory</label>
+                        <select class="form-control" id="category" ng-change="changeCategory()" required ng-options="option.title for option in contact.categories track by option.value" ng-model="contact.category">
+                        </select>
+                    </div>
+                    <div style="padding-top:25px;">
+                        <label for="priority">Priority</label>
+                        <uib-rating ng-model="rate" max="max" readonly="isReadonly" on-hover="hoveringOver(value)" on-leave="overStar = null" titles="['one','two','three']" aria-labelledby="default-rating"></uib-rating>
+                        <span id="priority" class="label" ng-class="{'label-warning': percent<30, 'label-info': percent>=30 && percent<70, 'label-success': percent>=70}" ng-show="overStar && !isReadonly">{{percent}}%</span>
+                    </div>
+                    <div>
+                        <button type="button" id="btn-query" ng-disabled="!(query_form.$valid &&categoryChange)" class="btn btn-primary">NEXT</button>
+                    </div>
+                </form>
+            </div>
+            <div role="tabpanel" class="tab-pane fade" id="confirm">
+                <div id="info-content">
+                    <div>Here is the confirmation for your query, if everything is correct, feel free to send it to us. We would love to take a look and will get back to you as soon as possible. In the meantime, you can send the confirmation to your email by clicking on the "Mail" to link</div>
+                    <div>
+                        <label>Confirmation ID</label>
+                        <div>{{contact.id}}</div>
+                    </div>
+                    <div>
+                        <label>Confirmation Date</label>
+                        <div>{{contact.currentTime | date:'medium' }}</div>
+                    </div>
+                    <div>
+                        <label>Confirmation Details</label>
+                        <div class="confirm-detail">
+                            <div>=========Information========</div>
+                            <div>Full Name:{{contact.lastname}} {{contact.firstname}}</div>
+                            <div>Email:{{contact.email}}</div>
+                            <div>Phone:{{contact.phone}}</div>
+                            <div>Location:{{contact.location.title}}</div>
+                            <div>=========Query========</div>
+                            <div>Title:{{contact.title}}</div>
+                            <div>Category:{{contact.category.title}}</div>
+                            <div>Priority:{{contact.priority}}</div>
+                            <div>Content:{{contact.content}}</div>
+                        </div>
+                    </div>
+                </div>
+                <div>
+                    <label>Mail To</label>
+                    <div><a href="#" id="sendEmail">{{user}}</a></div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

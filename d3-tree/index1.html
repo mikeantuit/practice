@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<meta charset="utf-8">
+<style type="text/css">
+  
+	.node {
+    cursor: pointer;
+  }
+  .overlay{
+      background-color:#EEE;
+  }
+   
+  .node circle {
+    fill: #fff;
+    stroke: steelblue;
+    stroke-width: 1.5px;
+  }
+   
+  .node text {
+    font-size:10px; 
+    font-family:sans-serif;
+  }
+   
+  .link {
+    fill: none;
+    stroke: #ccc;
+    stroke-width: 1.5px;
+  }
+  .templink {
+    fill: none;
+    stroke: red;
+    stroke-width: 3px;
+  }
+  .ghostCircle.show{
+      display:block;
+  }
+  .ghostCircle, .activeDrag .ghostCircle{
+       display: none;
+  }
+  .user-info__title {
+    fill: #344A5F;
+    font-size: 15px;
+  }
+  .user-info__name {
+    fill: #344A5F;
+    font-size: 12px;
+  }
+  .user-info__age {
+    fill: #344A5F;
+    font-size: 12px;
+  }
+  .user-info__other {
+    fill: #344A5F;
+    font-size: 12px;
+  }
+
+  .d3-context-menu {
+  position: absolute;
+  display: none;
+  background-color: #f2f2f2;
+  border-radius: 4px;
+
+  font-family: Arial, sans-serif;
+  font-size: 14px;
+  min-width: 150px;
+  border: 1px solid #d4d4d4;
+
+  z-index:1200;
+}
+
+.d3-context-menu ul {
+  list-style-type: none;
+  margin: 4px 0px;
+  padding: 0px;
+  cursor: default;
+}
+
+.d3-context-menu ul li {
+  padding: 4px 16px;
+}
+
+.d3-context-menu ul li:hover {
+  background-color: #4677f8;
+  color: #fefefe;
+}
+</style>
+<script src="http://code.jquery.com/jquery-1.10.2.min.js"></script>
+<script src="angular.js"></script>
+<script src="app.js"></script>
+<script src="service.js"></script>
+<script src="underscore.js"></script>
+
+<body ng-app="app" ng-controller="myCtrl">
+    <input ng-model="user.name">
+    <input ng-model="user.title">
+    <input ng-model="user.age">
+    <input ng-model="user.other">
+    <div id="tree-container" d3-tree data="d3Data" user="user">
+    </div>
+</body>
+</html>

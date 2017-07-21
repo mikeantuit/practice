@@ -1,0 +1,67 @@
+
+    <h2>Weather Forecast</h2>
+    <form action="http://api.worldweatheronline.com/free/v2/weather.ashx" method="get">
+        <input type="input" name="q" placeholder="input city name. i.e: Seattle" id="input_city_name">
+        <input type="hidden" name="key" value="65a3ab02df9148348f2c1b225ca2d">
+        <input type="hidden" name="format" value="json">
+        <input type="submit" value="Get Weather">
+    </form>
+    <div id="forecast"></div>
+    <div ng-controller="MapCtrl">
+        <table style="width:100%;">
+        <h2>Google Location</h2>
+        <tr>
+            <td>
+                <div class="map_container" >
+                    <google-map center="map.center" zoom="map.zoom" draggable="true" options="map.options" control="map.control">
+                        <markers models="map.markers" coords="'self'" options="'options'" isLabel='true'>
+                        </markers>
+                    </google-map>
+                </div>  
+            </td>
+            <td>
+                <div class="controls">
+                    <h3>Your Location</h3>
+                    <p>
+                        <button ng-click="addCurrentLocation()">Current Location</button>
+                    </p>
+                    <h3>Address Search</h3>
+                    <p>
+                        <input type="text" placeholder="Address. i.e: Boston" ng-model="address" style="width: 190px"/>
+                        <button ng-click="addAddress()">Look Up</button>    
+                    </p>
+                </div>
+            </td>
+        </tr>
+        <tr>
+            <td class="controls_direction">
+                <h2>Google Direction</h2>
+                <div>
+                    <label for="routeFrom">From</label><br/>
+                    <input type="text" id="routeFrom" name="routeFrom" value="Seattle,WA" style="width:200px"/><br/>
+                    <label for="routeTo">To</label><br/>
+                    <input type="text" id="routeTo" name="routeTo" value="San Jose,CA" style="width:200px"/><br/>
+                    <label for="routeMode">Mode</label><br/>
+                    <select id="routeMode" name="routeMode" style="width:200px"><br/>
+                        <option value="DRIVING">Driving</option>
+                        <option value="WALKING">Walking</option>
+                        <option value="BICYCLING">Bicycling</option>
+                        <option value="TRANSIT">Transit</option>
+                    </select>
+                    <div class="textcenter">
+                        <button id="routeGo">Route</button>
+                        <!-- <button id="routeClear">Clear Route</button> -->
+                    </div>
+                    
+                    <div id="map_canvas"></div>
+                 </div>   
+            </td>
+            <td>
+                <div id="directions"></div>
+            </td>
+        </tr>
+        </table>
+    </div>
+
+ 
+
